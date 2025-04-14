@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8ut53l3an8do"]
+
+[ext_resource type="PackedScene" uid="uid://c0fn70pwp8vco" path="res://scenes/player/animated_sprite_2d.tscn" id="1_4a83h"]
+[ext_resource type="Script" uid="uid://cffbcx3h6tj3e" path="res://scenes/enemy/Enemy.cs" id="1_a3pup"]
+[ext_resource type="Script" uid="uid://bjx4xulwk54l6" path="res://scenes/enemy/Health.cs" id="2_40wdo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4a83h"]
+size = Vector2(20, 30)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_a3pup")
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("2_40wdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_4a83h")
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("1_4a83h")]
+modulate = Color(0.282353, 1, 1, 1)
+frame_progress = 0.0
+
+[node name="Attack Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Range"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_4a83h")

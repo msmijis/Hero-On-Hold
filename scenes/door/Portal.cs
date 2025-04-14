@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Door : Node2D
+public partial class Portal : Node2D
 {
 	player player;
 	Node currentScene;
@@ -46,10 +46,10 @@ public partial class Door : Node2D
 	}
 	
 	private void EnterDoor(Node currentScene) {
-		if (currentScene.Name == "World2") {
+		if (currentScene.Name == "World3") {
 			GetTree().ChangeSceneToFile("res://scenes/levels/world.tscn");
 		} else {
-			GetTree().ChangeSceneToFile("res://scenes/levels/world_2.tscn");
+			GetTree().ChangeSceneToFile("res://scenes/levels/world_3.tscn");
 		}
 	}
 	
